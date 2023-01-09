@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { Turma } from './turma/entities/turma.entity';
+import { TurmaModule } from './turma/turma.module';
 
 @Module({
   imports: [
@@ -12,9 +12,10 @@ import { AppService } from './app.service';
       username: 'root',
       password: 'root',
       database: 'db_projetogen',
-      entities: [],
+      entities: [Turma],
       synchronize: true,
-    })
+    }),
+    TurmaModule
   ],
   controllers: [],
   providers: [],
